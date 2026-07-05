@@ -38,29 +38,70 @@
 // }
 
 // export default Landing;
-import Button from "@components/ui/Button";
+// import Button from "@components/ui/Button";
+// import Card from "@components/ui/Card";
+
+// function Landing() {
+//   return (
+//     <div className="min-h-screen bg-surface-bg flex items-center justify-center px-6">
+
+//       <Card
+//         hover
+//         padding="lg"
+//         className="w-full max-w-xl text-center"
+//       >
+
+//         <h1 className="text-6xl font-display font-bold text-gradient-emerald">
+//           Fitलोक
+//         </h1>
+
+//         <p className="mt-5 text-lg text-ink-500">
+//           Your AI Fitness Companion
+//         </p>
+
+//         <div className="mt-10">
+//           <Button size="lg">
+//             Get Started
+//           </Button>
+//         </div>
+
+//       </Card>
+
+//     </div>
+//   );
+// }
+
+// export default Landing;
 import Card from "@components/ui/Card";
+import Button from "@components/ui/Button";
+import Input from "@components/ui/Input";
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-surface-bg flex items-center justify-center px-6">
+    <div className="min-h-screen bg-surface-bg flex items-center justify-center p-6">
 
       <Card
         hover
         padding="lg"
-        className="w-full max-w-xl text-center"
+        className="w-full max-w-xl"
       >
 
-        <h1 className="text-6xl font-display font-bold text-gradient-emerald">
+        <h1 className="text-5xl font-bold text-center text-gradient-emerald">
           Fitलोक
         </h1>
 
-        <p className="mt-5 text-lg text-ink-500">
+        <p className="mt-3 mb-8 text-center text-ink-500">
           Your AI Fitness Companion
         </p>
 
-        <div className="mt-10">
-          <Button size="lg">
+        <Input
+          label="Email"
+          placeholder="Enter your email"
+        helperText="Your credentials are kept secure and confidential."
+        />
+
+        <div className="mt-6">
+          <Button className="w-full">
             Get Started
           </Button>
         </div>
