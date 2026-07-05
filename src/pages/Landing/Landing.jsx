@@ -97,7 +97,7 @@ function Landing() {
         <Input
           label="Email"
           placeholder="Enter your email"
-        helperText="Your credentials are kept secure and confidential."
+        helperText="Your credentials remain secure and confidential."
         />
 
         <div className="mt-6">
