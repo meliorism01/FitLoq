@@ -2,6 +2,7 @@ import Container from "@components/layout/Container";
 import Card from "@components/ui/Card";
 import Button from "@components/ui/Button";
 import { motion } from "framer-motion";
+import ProgressRing from "@components/ui/ProgressRing";
 
 function Hero() {
   return (
@@ -139,35 +140,83 @@ function Hero() {
               </div>
 
               <div className="space-y-4">
-                <Progress
-                  title="🔥 Calories"
-                  value="1860 / 2400 kcal"
-                  percent="78%"
-                />
+                <div className="flex items-center justify-between rounded-xl border border-surface-border p-3">
+  <div>
+    <p className="font-medium">
+      🔥 Calories
+    </p>
 
-                <Progress
-                  title="🥩 Protein"
-                  value="132 / 160 g"
-                  percent="82%"
-                />
+    <p className="text-sm text-ink-500">
+      1860 / 2400 kcal
+    </p>
+  </div>
 
-                <Progress
-                  title="🍚 Carbs"
-                  value="180 / 250 g"
-                  percent="72%"
-                />
+  <ProgressRing
+    value={78}
+    size={60}
+    strokeWidth={6}
+    label=""
+  />
+</div>
 
-                <Progress
-                  title="🥑 Fat"
-                  value="60 / 70 g"
-                  percent="86%"
-                />
+                <div className="flex items-center justify-between rounded-xl border border-surface-border p-3">
+  <div>
+    <p className="font-medium">🥩 Protein</p>
+    <p className="text-sm text-ink-500">
+      132 / 160 g
+    </p>
+  </div>
 
-                <Progress
-                  title="💧 Water"
-                  value="2.8 / 4 L"
-                  percent="70%"
-                />
+  <ProgressRing
+    value={82}
+    size={58}
+    strokeWidth={6}
+  />
+</div>
+
+               <div className="flex items-center justify-between rounded-xl border border-surface-border p-3">
+  <div>
+    <p className="font-medium">🍚 Carbs</p>
+    <p className="text-sm text-ink-500">
+      180 / 250 g
+    </p>
+  </div>
+
+  <ProgressRing
+    value={72}
+    size={58}
+    strokeWidth={6}
+  />
+</div>
+
+                <div className="flex items-center justify-between rounded-xl border border-surface-border p-3">
+  <div>
+    <p className="font-medium">🥑 Fat</p>
+    <p className="text-sm text-ink-500">
+      60 / 70 g
+    </p>
+  </div>
+
+  <ProgressRing
+    value={86}
+    size={58}
+    strokeWidth={6}
+  />
+</div>
+               <div className="flex items-center justify-between rounded-xl border border-surface-border p-3">
+  <div>
+    <p className="font-medium">💧 Water</p>
+    <p className="text-sm text-ink-500">
+      2.8 / 4 L
+    </p>
+  </div>
+
+  <ProgressRing
+    value={70}
+    size={58}
+    strokeWidth={6}
+  />
+</div>
               </div>
 
               {/* Workout */}
@@ -220,24 +269,6 @@ function Hero() {
   );
 }
 
-function Progress({ title, value, percent }) {
-  return (
-    <div className="flex items-center justify-between rounded-xl border border-surface-border p-3">
-      <div>
-        <p className="font-medium text-ink-900">
-          {title}
-        </p>
 
-        <p className="text-sm text-ink-500">
-          {value}
-        </p>
-      </div>
-
-      <div className="flex h-14 w-14 items-center justify-center rounded-full border-4 border-emerald-500 text-sm font-bold text-emerald-600">
-        {percent}
-      </div>
-    </div>
-  );
-}
 
 export default Hero;
