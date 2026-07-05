@@ -72,42 +72,86 @@
 // }
 
 // export default Landing;
-import Card from "@components/ui/Card";
+// import Card from "@components/ui/Card";
+// import Button from "@components/ui/Button";
+// import Input from "@components/ui/Input";
+// import Container from "@components/layout/Container";
+
+// function Landing() {
+//   return (
+//     <div className="min-h-screen bg-surface-bg flex items-center justify-center p-6">
+
+//       <Card
+//         hover
+//         padding="lg"
+//         className="w-full max-w-xl"
+//       >
+
+//         <h1 className="text-5xl font-bold text-center text-gradient-emerald">
+//           Fitलोक
+//         </h1>
+
+//         <p className="mt-3 mb-8 text-center text-ink-500">
+//           Your AI Fitness Companion
+//         </p>
+
+//         <Input
+//           label="Email"
+//           placeholder="Enter your email"
+//         helperText="Your credentials remain secure and confidential."
+//         />
+
+//         <div className="mt-6">
+//           <Button className="w-full">
+//             Get Started
+//           </Button>
+//         </div>
+
+//       </Card>
+
+//     </div>
+//   );
+// }
+
+// export default Landing;
 import Button from "@components/ui/Button";
+import Card from "@components/ui/Card";
 import Input from "@components/ui/Input";
+import Container from "@components/layout/Container";
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-surface-bg flex items-center justify-center p-6">
+    <div className="min-h-screen bg-surface-bg flex items-center">
+      <Container>
+        <Card
+          hover
+          padding="lg"
+          className="w-full max-w-xl mx-auto text-center"
+        >
+          <h1 className="text-6xl font-display font-bold text-gradient-emerald">
+            Fitलोक
+          </h1>
 
-      <Card
-        hover
-        padding="lg"
-        className="w-full max-w-xl"
-      >
+          <p className="mt-4 text-lg text-ink-500">
+            Your AI Fitness Companion
+          </p>
 
-        <h1 className="text-5xl font-bold text-center text-gradient-emerald">
-          Fitलोक
-        </h1>
+          <div className="mt-8">
+            <Input
+              label="Email Address"
+              type="email"
+              placeholder="Enter your email"
+              helperText="Your credentials remain secure and confidential."
+            />
+          </div>
 
-        <p className="mt-3 mb-8 text-center text-ink-500">
-          Your AI Fitness Companion
-        </p>
-
-        <Input
-          label="Email"
-          placeholder="Enter your email"
-        helperText="Your credentials remain secure and confidential."
-        />
-
-        <div className="mt-6">
-          <Button className="w-full">
-            Get Started
-          </Button>
-        </div>
-
-      </Card>
-
+          <div className="mt-8">
+            <Button size="lg" className="w-full">
+              Get Started
+            </Button>
+          </div>
+        </Card>
+      </Container>
     </div>
   );
 }
