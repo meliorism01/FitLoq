@@ -114,45 +114,56 @@
 // }
 
 // export default Landing;
-import Button from "@components/ui/Button";
-import Card from "@components/ui/Card";
-import Input from "@components/ui/Input";
-import Container from "@components/layout/Container";
+// import Button from "@components/ui/Button";
+// import Card from "@components/ui/Card";
+// import Input from "@components/ui/Input";
+// import Container from "@components/layout/Container";
+
+// function Landing() {
+//   return (
+//     <div className="min-h-screen bg-surface-bg flex items-center">
+//       <Container>
+//         <Card
+//           hover
+//           padding="lg"
+//           className="w-full max-w-xl mx-auto text-center"
+//         >
+//           <h1 className="text-6xl font-display font-bold text-gradient-emerald">
+//             Fitलोक
+//           </h1>
+
+//           <p className="mt-4 text-lg text-ink-500">
+//             Your AI Fitness Companion
+//           </p>
+
+//           <div className="mt-8">
+//             <Input
+//               label="Email Address"
+//               type="email"
+//               placeholder="Enter your email"
+//               helperText="Your credentials remain secure and confidential."
+//             />
+//           </div>
+
+//           <div className="mt-8">
+//             <Button size="lg" className="w-full">
+//               Get Started
+//             </Button>
+//           </div>
+//         </Card>
+//       </Container>
+//     </div>
+//   );
+// }
+
+// export default Landing;
+import LandingLayout from "@layouts/LandingLayout";
 
 function Landing() {
   return (
-    <div className="min-h-screen bg-surface-bg flex items-center">
-      <Container>
-        <Card
-          hover
-          padding="lg"
-          className="w-full max-w-xl mx-auto text-center"
-        >
-          <h1 className="text-6xl font-display font-bold text-gradient-emerald">
-            Fitलोक
-          </h1>
-
-          <p className="mt-4 text-lg text-ink-500">
-            Your AI Fitness Companion
-          </p>
-
-          <div className="mt-8">
-            <Input
-              label="Email Address"
-              type="email"
-              placeholder="Enter your email"
-              helperText="Your credentials remain secure and confidential."
-            />
-          </div>
-
-          <div className="mt-8">
-            <Button size="lg" className="w-full">
-              Get Started
-            </Button>
-          </div>
-        </Card>
-      </Container>
-    </div>
+    <LandingLayout>
+      {/* Hero Section will come here */}
+    </LandingLayout>
   );
 }
 
