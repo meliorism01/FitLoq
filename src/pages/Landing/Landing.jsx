@@ -188,13 +188,15 @@
 
 // export default Landing;
 import LandingLayout from "@layouts/LandingLayout";
-import Hero from "./sections/Hero";
+import Hero from "./sections/Hero/Hero";
+import Features from "./sections/Features";
 
 function Landing() {
   return (
     <LandingLayout>
-      <Hero />
-    </LandingLayout>
+  <Hero />
+  <Features />
+</LandingLayout>
   );
 }
 
