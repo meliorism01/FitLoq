@@ -157,12 +157,43 @@
 // }
 
 // export default Landing;
+// import LandingLayout from "@layouts/LandingLayout";
+
+// function Landing() {
+//   return (
+//     <LandingLayout>
+//       {/* Hero Section will come here */}
+//     </LandingLayout>
+//   );
+// }
+
+// export default Landing;
+// import LandingLayout from "@layouts/LandingLayout";
+
+// function Landing() {
+//   return (
+//     <LandingLayout>
+
+//       <section className="min-h-[calc(100vh-80px)] flex items-center justify-center">
+
+//         <h1 className="text-6xl font-bold text-gradient-emerald">
+//           Hero Section Coming Next 🚀
+//         </h1>
+
+//       </section>
+
+//     </LandingLayout>
+//   );
+// }
+
+// export default Landing;
 import LandingLayout from "@layouts/LandingLayout";
+import Hero from "./sections/Hero";
 
 function Landing() {
   return (
     <LandingLayout>
-      {/* Hero Section will come here */}
+      <Hero />
     </LandingLayout>
   );
 }
