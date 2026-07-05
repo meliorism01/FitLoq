@@ -1,27 +1,18 @@
-import { useRef } from "react";
-import { useInView } from "framer-motion";
-
-import LandingLayout from "@layouts/LandingLayout";
-
+import Navbar from "../../components/layout/Navbar";
 import Hero from "./sections/Hero";
-import HeroScroll from "./sections/Hero/HeroScroll";
+import DashboardShowcase from "./sections/DashboardShowcase";
+import AIShowcase from "./sections/AIShowcase";
 import Features from "./sections/Features";
 
 function Landing() {
-  const heroRef = useRef(null);
-
-  const heroVisible = useInView(heroRef, {
-    amount: 0.7,
-  });
-
   return (
-    <LandingLayout>
-      <Hero ref={heroRef} />
-
-      <HeroScroll visible={heroVisible} />
-
+    <>
+      <Navbar />
+      <Hero />
+      <DashboardShowcase />
+      <AIShowcase />
       <Features />
-    </LandingLayout>
+    </>
   );
 }
 
