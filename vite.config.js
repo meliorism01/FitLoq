@@ -23,6 +23,7 @@ export default defineConfig({
     '@assets': '/src/assets',
     '@styles': '/src/styles',
     '@schemas': '/src/schemas',
+    '@guards': '/src/guards',
   },
 },
 })
