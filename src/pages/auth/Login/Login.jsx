@@ -1,18 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
-
+import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import AuthHeader from "@components/auth/AuthHeader";
 import AuthInput from "@components/auth/AuthInput";
 import PasswordInput from "@components/auth/PasswordInput";
+import SocialLogin from "@components/auth/SocialLogin";
+import AuthFooter from "@components/auth/AuthFooter";
+import AuthButton from "@components/auth/AuthButton";
 
 import { loginSchema } from "@schemas/authSchemas";
 import useAuth from "@hooks/useAuth";
 
 function Login() {
   const navigate = useNavigate();
-
   const { login, isLoading } = useAuth();
 
   const {
@@ -21,6 +23,7 @@ function Login() {
     formState: { errors },
   } = useForm({
     resolver: zodResolver(loginSchema),
+    mode: "onTouched",
   });
 
   const onSubmit = async (values) => {
@@ -34,7 +37,11 @@ function Login() {
   };
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45 }}
+    >
       <AuthHeader
         title="Welcome Back 👋"
         subtitle="Sign in to continue your fitness journey."
@@ -42,7 +49,7 @@ function Login() {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="space-y-5"
+        className="mt-8 space-y-5"
       >
         <AuthInput
           label="Email"
@@ -71,35 +78,31 @@ function Login() {
 
           <Link
             to="/forgot-password"
-            className="font-medium text-emerald-600 hover:text-emerald-700"
+            className="font-medium text-primary-600 hover:underline"
           >
             Forgot Password?
           </Link>
 
         </div>
 
-        <button
+        <AuthButton
           type="submit"
-          disabled={isLoading}
-          className="w-full rounded-2xl bg-emerald-600 py-3 font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-70"
+          loading={isLoading}
         >
-          {isLoading ? "Signing In..." : "Sign In"}
-        </button>
+          Sign In
+        </AuthButton>
+
+        <SocialLogin />
+
       </form>
 
-      <p className="mt-8 text-center text-sm text-ink-500">
+      <AuthFooter
+        text="Don't have an account?"
+        action="Create Account"
+        to="/signup"
+      />
 
-        Don't have an account?
-
-        <Link
-          to="/signup"
-          className="ml-2 font-semibold text-emerald-600"
-        >
-          Create Account
-        </Link>
-
-      </p>
-    </div>
+    </motion.div>
   );
 }
 
