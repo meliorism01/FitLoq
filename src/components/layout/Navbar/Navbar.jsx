@@ -41,15 +41,19 @@ function Navbar() {
           {/* Right Buttons */}
           <div className="hidden lg:flex items-center gap-4">
 
-            <Button variant="secondary">
-              Login
-            </Button>
+  <Link to={ROUTES.LOGIN}>
+    <Button variant="secondary">
+      Login
+    </Button>
+  </Link>
 
-            <Button>
-              Get Started
-            </Button>
+  <Link to={ROUTES.REGISTER}>
+    <Button>
+      Get Started
+    </Button>
+  </Link>
 
-          </div>
+</div>
 
           {/* Mobile Placeholder */}
           <div className="lg:hidden">

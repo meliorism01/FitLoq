@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { ROUTES } from "@constants/routes";
+
 import AuthHeader from "@components/auth/AuthHeader";
 import AuthInput from "@components/auth/AuthInput";
 import PasswordInput from "@components/auth/PasswordInput";
@@ -17,23 +19,24 @@ function Login() {
   const navigate = useNavigate();
   const { login, isLoading } = useAuth();
 
-const {
-  register,
-  handleSubmit,
-  formState: { errors },
-} = useForm({
-  resolver: zodResolver(loginSchema),
-  mode: "onTouched",
-  defaultValues: {
-    email: "",
-    password: "",
-  },
-});
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(loginSchema),
+    mode: "onTouched",
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
   const onSubmit = async (values) => {
     const result = await login(values);
 
     if (result.success) {
-      navigate("/dashboard");
+      navigate(ROUTES.DASHBOARD);
     } else {
       console.error(result.message);
     }
@@ -70,22 +73,17 @@ const {
         />
 
         <div className="flex items-center justify-between text-sm">
-
           <label className="flex items-center gap-2">
-
             <input type="checkbox" />
-
             Remember Me
-
           </label>
 
           <Link
-            to="/forgot-password"
+            to={ROUTES.FORGOT_PASSWORD}
             className="font-medium text-primary-600 hover:underline"
           >
             Forgot Password?
           </Link>
-
         </div>
 
         <AuthButton
@@ -96,15 +94,13 @@ const {
         </AuthButton>
 
         <SocialLogin />
-
       </form>
 
       <AuthFooter
         text="Don't have an account?"
         action="Create Account"
-        to="/signup"
+        to={ROUTES.REGISTER}
       />
-
     </motion.div>
   );
 }

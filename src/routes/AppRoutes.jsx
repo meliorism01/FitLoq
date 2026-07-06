@@ -1,38 +1,65 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import { ROUTES } from "@constants/routes";
 
 import Landing from "@pages/Landing/Landing";
 
 import AuthLayout from "@layouts/AuthLayout";
 
-import Login from "@pages/Auth/Login";
-import Signup from "@pages/Auth/Signup";
-import ForgotPassword from "@pages/Auth/ForgotPassword";
-import VerifyOTP from "@pages/Auth/VerifyOTP";
-import ResetPassword from "@pages/Auth/ResetPassword";
+import Login from "@pages/auth/Login";
+import Signup from "@pages/auth/Signup";
+import ForgotPassword from "@pages/auth/ForgotPassword";
+import VerifyOTP from "@pages/auth/VerifyOTP";
+import ResetPassword from "@pages/auth/ResetPassword";
 
 function AppRoutes() {
   return (
     <Routes>
-      {/* Public Landing */}
-      <Route path="/" element={<Landing />} />
+      {/* ===================== */}
+      {/* Public Routes */}
+      {/* ===================== */}
 
+      <Route path={ROUTES.HOME} element={<Landing />} />
+
+      {/* ===================== */}
       {/* Authentication */}
+      {/* ===================== */}
+
       <Route element={<AuthLayout />}>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
         <Route
-          path="/forgot-password"
+          path={ROUTES.LOGIN}
+          element={<Login />}
+        />
+
+        <Route
+          path={ROUTES.REGISTER}
+          element={<Signup />}
+        />
+
+        <Route
+          path={ROUTES.FORGOT_PASSWORD}
           element={<ForgotPassword />}
         />
+
         <Route
-          path="/verify-otp"
+          path={ROUTES.VERIFY_OTP}
           element={<VerifyOTP />}
         />
+
         <Route
-          path="/reset-password"
+          path={ROUTES.RESET_PASSWORD}
           element={<ResetPassword />}
         />
       </Route>
+
+      {/* ===================== */}
+      {/* 404 */}
+      {/* ===================== */}
+
+      <Route
+        path="*"
+        element={<Navigate to={ROUTES.HOME} replace />}
+      />
     </Routes>
   );
 }
