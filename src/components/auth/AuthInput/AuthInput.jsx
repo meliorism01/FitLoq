@@ -7,6 +7,7 @@ function AuthInput({
   name,
   error,
   required = false,
+  ...rest
 }) {
   return (
     <div className="mb-5">
@@ -22,19 +23,19 @@ function AuthInput({
       </label>
 
       <input
-        id={name}
-        name={name}
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        className={`w-full rounded-2xl border px-4 py-3 outline-none transition-all duration-200
-        ${
-          error
-            ? "border-red-500 focus:border-red-500"
-            : "border-surface-border focus:border-emerald-500"
-        }`}
-      />
+  id={name}
+  name={name}
+  type={type}
+  placeholder={placeholder}
+  value={value}
+  onChange={onChange}
+  {...rest}
+  className={`w-full rounded-2xl border px-4 py-3 outline-none transition-all duration-200 ${
+    error
+      ? "border-red-500 focus:border-red-500"
+      : "border-surface-border focus:border-emerald-500"
+  }`}
+/>
 
       {error && (
         <p className="mt-2 text-sm text-red-500">
