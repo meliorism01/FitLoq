@@ -52,24 +52,32 @@ export const dashboardData = {
   unit: "L",
 },
 
-  meals: [
-    {
-      id: 1,
-      name: "Paneer Bhurji",
-      calories: 420,
-    },
-    {
-      id: 2,
-      name: "Chicken & Rice",
-      calories: 610,
-    },
-    {
-      id: 3,
-      name: "Oats with Milk",
-      calories: 340,
-    },
-  ],
-
+ meals: [
+  {
+    id: 1,
+    type: "Breakfast",
+    icon: "🍳",
+    name: "Oats & Banana",
+    calories: 520,
+    protein: 32,
+  },
+  {
+    id: 2,
+    type: "Lunch",
+    icon: "🍗",
+    name: "Chicken Rice Bowl",
+    calories: 650,
+    protein: 48,
+  },
+  {
+    id: 3,
+    type: "Snack",
+    icon: "🥛",
+    name: "Greek Yogurt",
+    calories: 180,
+    protein: 20,
+  },
+],
   achievements: [
     "12 Day Streak 🔥",
     "Workout Completed 💪",
