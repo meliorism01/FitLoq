@@ -10,7 +10,7 @@ import HabitTracker from "./sections/HabitTracker";
 
 function Dashboard() {
   return (
-    <div className="space-y-8 p-8">
+    <div className="space-y-8">
 
       <Greeting />
 
@@ -35,7 +35,7 @@ function Dashboard() {
       </div>
 
       <Achievements />
-      
+
        <HabitTracker />
 
     </div>
