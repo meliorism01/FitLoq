@@ -1,38 +1,36 @@
-import axios from 'axios'
+import axios from "axios";
+import { STORAGE_KEYS } from "@constants/storageKeys";
 
-// Frontend service layer only — no backend exists yet. This client is fully
-// configured (base URL, interceptors, auth header injection) so that when
-// real endpoints come online, feature services (nutritionService.js,
-// workoutService.js, etc.) can switch from mock data to `apiClient.get(...)`
-// without any component-level changes.
+// Frontend service layer only — no backend exists yet.
+// When the backend is ready, feature services will use this client.
 
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || '/api/v1',
+  baseURL: import.meta.env.VITE_API_BASE_URL || "/api/v1",
   timeout: 15000,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
-})
+});
 
 apiClient.interceptors.request.use((config) => {
-  const token = localStorage.getItem('fitloq_token')
+  const token = localStorage.getItem(STORAGE_KEYS.TOKEN);
+
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`
+    config.headers.Authorization = `Bearer ${token}`;
   }
-  return config
-})
+
+  return config;
+});
 
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Centralized error normalization point. Real implementation will
-    // dispatch toast notifications / redirect on 401, etc.
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
-      console.warn('[apiClient] request failed:', error?.message)
+      console.warn("[apiClient] request failed:", error?.message);
     }
-    return Promise.reject(error)
-  },
-)
 
-export default apiClient
+    return Promise.reject(error);
+  }
+);
+
+export default apiClient;

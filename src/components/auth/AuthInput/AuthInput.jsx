@@ -29,6 +29,8 @@ function AuthInput({
   placeholder={placeholder}
   value={value}
   onChange={onChange}
+  autoComplete={type === "email" ? "email" : undefined}
+  spellCheck={false}
   {...rest}
   className={`w-full rounded-2xl border px-4 py-3 outline-none transition-all duration-200 ${
     error

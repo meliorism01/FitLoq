@@ -1,96 +1,74 @@
-import { createContext, useEffect, useMemo, useState } from "react";
-
-import { authService } from "@services/authService";
+import { createContext, useContext, useMemo, useState } from "react";
+import { STORAGE_KEYS } from "@constants/storageKeys";
 
 export const AuthContext = createContext(null);
 
-function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+const MOCK_USER = {
+  id: "user_001",
+  name: "Aarav Sharma",
+  email: "aarav.sharma@example.com",
+  avatarUrl: null,
+  goal: "Build Muscle",
+  dietPreference: "Vegetarian",
+  height: 175,
+  weight: 72,
+  age: 27,
+};
+
+export function AuthProvider({ children }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
+  const [user, setUser] = useState(MOCK_USER);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem("fitloq_token");
-    const storedUser = localStorage.getItem("fitloq_user");
-
-    if (token && storedUser) {
-      setUser(JSON.parse(storedUser));
-      setIsAuthenticated(true);
-    }
-  }, []);
-
-  const login = async (credentials) => {
+  const login = async (_credentials) => {
     setIsLoading(true);
 
-    try {
-      const data = await authService.login(credentials);
+    await new Promise((resolve) => setTimeout(resolve, 800));
 
-      localStorage.setItem("fitloq_token", data.token);
-      localStorage.setItem(
-        "fitloq_user",
-        JSON.stringify(data.user)
-      );
+    // Mock backend response
+    localStorage.setItem(STORAGE_KEYS.TOKEN, "mock-jwt-token");
+    localStorage.setItem(
+      STORAGE_KEYS.USER,
+      JSON.stringify(MOCK_USER)
+    );
 
-      setUser(data.user);
-      setIsAuthenticated(true);
+    setUser(MOCK_USER);
+    setIsAuthenticated(true);
 
-      return {
-        success: true,
-      };
-    } catch (error) {
-      return {
-        success: false,
-        message:
-          error.response?.data?.message ||
-          "Login failed",
-      };
-    } finally {
-      setIsLoading(false);
-    }
+    setIsLoading(false);
+
+    return {
+      success: true,
+    };
   };
 
-  const register = async (payload) => {
+  const register = async (_details) => {
     setIsLoading(true);
 
-    try {
-      const data = await authService.signup(payload);
+    await new Promise((resolve) => setTimeout(resolve, 800));
 
-      localStorage.setItem("fitloq_token", data.token);
-      localStorage.setItem(
-        "fitloq_user",
-        JSON.stringify(data.user)
-      );
+    localStorage.setItem(STORAGE_KEYS.TOKEN, "mock-jwt-token");
+    localStorage.setItem(
+      STORAGE_KEYS.USER,
+      JSON.stringify(MOCK_USER)
+    );
 
-      setUser(data.user);
-      setIsAuthenticated(true);
+    setUser(MOCK_USER);
+    setIsAuthenticated(true);
 
-      return {
-        success: true,
-      };
-    } catch (error) {
-      return {
-        success: false,
-        message:
-          error.response?.data?.message ||
-          "Registration failed",
-      };
-    } finally {
-      setIsLoading(false);
-    }
+    setIsLoading(false);
+
+    return {
+      success: true,
+    };
   };
 
-  const logout = async () => {
-    try {
-      await authService.logout();
-    } catch {
-      // ignore until backend exists
-    }
+  const logout = () => {
+    localStorage.removeItem(STORAGE_KEYS.TOKEN);
+    localStorage.removeItem(STORAGE_KEYS.USER);
 
-    localStorage.removeItem("fitloq_token");
-    localStorage.removeItem("fitloq_user");
-
-    setUser(null);
     setIsAuthenticated(false);
+    setUser(null);
   };
 
   const updateUser = (updates) => {
@@ -102,15 +80,15 @@ function AuthProvider({ children }) {
 
   const value = useMemo(
     () => ({
-      user,
       isAuthenticated,
+      user,
       isLoading,
       login,
       register,
       logout,
       updateUser,
     }),
-    [user, isAuthenticated, isLoading]
+    [isAuthenticated, user, isLoading]
   );
 
   return (
@@ -118,6 +96,18 @@ function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
+}
+
+export function useAuthContext() {
+  const context = useContext(AuthContext);
+
+  if (!context) {
+    throw new Error(
+      "useAuthContext must be used within AuthProvider"
+    );
+  }
+
+  return context;
 }
 
 export default AuthProvider;

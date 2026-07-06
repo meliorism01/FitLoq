@@ -17,22 +17,25 @@ function Login() {
   const navigate = useNavigate();
   const { login, isLoading } = useAuth();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(loginSchema),
-    mode: "onTouched",
-  });
-
+const {
+  register,
+  handleSubmit,
+  formState: { errors },
+} = useForm({
+  resolver: zodResolver(loginSchema),
+  mode: "onTouched",
+  defaultValues: {
+    email: "",
+    password: "",
+  },
+});
   const onSubmit = async (values) => {
     const result = await login(values);
 
     if (result.success) {
       navigate("/dashboard");
     } else {
-      alert(result.message);
+      console.error(result.message);
     }
   };
 

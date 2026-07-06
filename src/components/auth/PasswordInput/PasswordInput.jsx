@@ -34,6 +34,7 @@ function PasswordInput({
           value={value}
           onChange={onChange}
           placeholder={placeholder}
+          autoComplete="current-password"
           {...rest}
           className={`w-full rounded-2xl border px-4 py-3 pr-12 outline-none transition-all duration-200 ${
             error
