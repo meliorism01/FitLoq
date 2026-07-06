@@ -1,1 +1,10 @@
-export { default } from "./Dashboard";
+export { default as Greeting } from "./Greeting";
+export { default as StatsRow } from "./StatsRow";
+export { default as MicroRings } from "./MicroRings";
+export { default as WorkoutCard } from "./WorkoutCard";
+export { default as WaterTracker } from "./WaterTracker";
+export { default as WeeklyCharts } from "./WeeklyCharts";
+export { default as RecentMeals } from "./RecentMeals";
+export { default as AIInsights } from "./AIInsights";
+export { default as Achievements } from "./Achievements";
+export { default as HabitTracker } from "./HabitTracker";

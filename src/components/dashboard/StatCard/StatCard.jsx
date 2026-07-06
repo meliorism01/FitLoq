@@ -1,4 +1,5 @@
 import DashboardCard from "../DashboardCard";
+import AnimatedCounter from "@components/ui/AnimatedCounter";
 
 function StatCard({
   title,
@@ -20,7 +21,11 @@ function StatCard({
 
           <h2 className="mt-2 text-3xl font-bold">
 
-            {value}
+            {typeof value === "number" ? (
+  <AnimatedCounter end={value} />
+) : (
+  value
+)}
 
             {unit && (
               <span className="ml-1 text-lg font-medium">

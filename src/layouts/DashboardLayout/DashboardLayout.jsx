@@ -5,23 +5,24 @@ import TopNavbar from "@components/layout/TopNavbar";
 
 function DashboardLayout() {
   return (
-    <div className="flex min-h-screen bg-surface-bg">
+    <div className="flex h-screen bg-surface-bg">
 
-      <Sidebar />
+  <Sidebar />
 
-      <div className="flex flex-1 flex-col">
+  <div className="flex flex-1 flex-col overflow-hidden">
 
-        <TopNavbar />
+    <TopNavbar />
 
-        <main className="flex-1 overflow-y-auto p-8">
+    <main
+      id="dashboard-scroll"
+      className="flex-1 overflow-y-auto p-8"
+    >
+      <Outlet />
+    </main>
 
-          <Outlet />
+  </div>
 
-        </main>
-
-      </div>
-
-    </div>
+</div>
   );
 }
 

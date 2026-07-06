@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
+
 import Greeting from "./sections/Greeting";
-import MicroRings from "./sections/MicroRings";
+import StatsRow from "./sections/StatsRow";
 import WorkoutCard from "./sections/WorkoutCard";
 import WaterTracker from "./sections/WaterTracker";
 import WeeklyCharts from "./sections/WeeklyCharts";
@@ -10,35 +12,46 @@ import HabitTracker from "./sections/HabitTracker";
 
 function Dashboard() {
   return (
-    <div className="space-y-8">
+    <motion.div
+      className="space-y-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+     <Greeting />
 
-      <Greeting />
+<StatsRow />
 
-      <MicroRings />
+<div className="grid items-stretch gap-6 lg:grid-cols-3">
 
-      <div className="grid gap-6 lg:grid-cols-2">
+  <div className="lg:col-span-2">
+    <WeeklyCharts />
+  </div>
 
-        <WorkoutCard />
+  <div className="h-full">
+    <AIInsights />
+  </div>
 
-        <WaterTracker />
+</div>
 
-      </div>
+<div className="grid gap-6 lg:grid-cols-2">
 
-      <WeeklyCharts />
+  <WorkoutCard />
 
-      <div className="grid gap-6 lg:grid-cols-2">
+  <WaterTracker />
 
-        <RecentMeals />
+</div>
 
-        <AIInsights />
+<div className="grid gap-6 lg:grid-cols-2">
 
-      </div>
+  <RecentMeals />
 
-      <Achievements />
+  <HabitTracker />
 
-       <HabitTracker />
+</div>
 
-    </div>
+<Achievements />
+    </motion.div>
   );
 }
 
