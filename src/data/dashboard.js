@@ -79,10 +79,28 @@ export const dashboardData = {
   },
 ],
   achievements: [
-    "12 Day Streak 🔥",
-    "Workout Completed 💪",
-    "Protein Goal Reached 🥩",
-  ],
+  {
+    id: 1,
+    icon: "🔥",
+    title: "15 Day Streak",
+    description: "Logged workouts for 15 consecutive days",
+    unlocked: true,
+  },
+  {
+    id: 2,
+    icon: "🥇",
+    title: "Protein Master",
+    description: "Reached protein goal 20 times",
+    unlocked: true,
+  },
+  {
+    id: 3,
+    icon: "⚡",
+    title: "Iron Warrior",
+    description: "Completed 100 workouts",
+    unlocked: false,
+  },
+],
 
  aiInsight: {
   title: "Protein Intake",
@@ -96,6 +114,35 @@ export const dashboardData = {
   mealTime: "Within the next 2 hours",
 
   confidence: 96,
+},
+
+habits: {
+  streak: 12,
+
+  weekly: [1, 1, 1, 0, 1, 1, 0],
+
+  items: [
+    {
+      id: 1,
+      name: "Drink Water",
+      completed: true,
+    },
+    {
+      id: 2,
+      name: "Workout",
+      completed: true,
+    },
+    {
+      id: 3,
+      name: "Read 20 mins",
+      completed: true,
+    },
+    {
+      id: 4,
+      name: "Stretching",
+      completed: false,
+    },
+  ],
 },
 
   weeklyProgress: [
