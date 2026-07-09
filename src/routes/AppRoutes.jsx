@@ -16,6 +16,7 @@ import ResetPassword from "@pages/auth/ResetPassword";
 import Dashboard from "@pages/Dashboard/Dashboard";
 
 import ProtectedRoute from "@guards/ProtectedRoute";
+import Nutrition from "../features/nutrition/pages/Nutrition";
 
 function AppRoutes() {
   return (
@@ -63,6 +64,11 @@ function AppRoutes() {
           path="dashboard"
           element={<Dashboard />}
         />
+
+        <Route
+  path="nutrition"
+  element={<Nutrition />}
+/> 
       </Route>
 
       {/* ===================== */}
