@@ -14,9 +14,9 @@ function DashboardLayout() {
     <TopNavbar />
 
     <main
-      id="dashboard-scroll"
-      className="flex-1 overflow-y-auto p-8"
-    >
+  id="dashboard-scroll"
+  className="flex-1 overflow-y-auto overflow-x-hidden p-8"
+>
       <Outlet />
     </main>
 

@@ -10,11 +10,25 @@
   html {
     scroll-behavior: smooth;
   }
+html,
+body,
+#root {
+  height: 100%;
+}
 
+body {
+  @apply bg-surface-bg text-ink-900 font-sans antialiased;
+
+  overflow: hidden;
+
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
   body {
-    @apply bg-surface-bg text-ink-900 font-sans antialiased;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-  }
+  @apply bg-surface-bg text-ink-900 font-sans antialiased;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+
+  overflow: hidden;
+}
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight text-ink-900;

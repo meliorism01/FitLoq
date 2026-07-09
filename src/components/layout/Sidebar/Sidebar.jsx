@@ -9,7 +9,7 @@ import SidebarItem from "./SidebarItem";
 
 function Sidebar() {
   return (
-    <aside className="sticky top-0 flex h-screen w-72 flex-col border-r border-surface-border bg-white">
+  <aside className="flex h-screen w-72 flex-col border-r border-surface-border bg-white">
 
       {/* Logo */}
       <div className="flex h-20 items-center border-b border-surface-border px-6">
