@@ -9,6 +9,8 @@ import RecentMeals from "./sections/RecentMeals";
 import AIInsights from "./sections/AIInsights";
 import Achievements from "./sections/Achievements";
 import HabitTracker from "./sections/HabitTracker";
+import ActivityRings from "./sections/ActivityRings";
+import Hero from "@components/dashboard/Hero";
 
 function Dashboard() {
   return (
@@ -18,7 +20,7 @@ function Dashboard() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-     <Greeting />
+     <Hero />
 
 <StatsRow />
 
@@ -49,6 +51,8 @@ function Dashboard() {
   <HabitTracker />
 
 </div>
+
+<ActivityRings />
 
 <Achievements />
     </motion.div>
