@@ -1,5 +1,7 @@
 import { Sparkles } from "lucide-react";
 
+import { nutritionData } from "../../data/nutrition";
+
 function HeroInsight() {
   return (
     <div className="mt-8 flex gap-4 rounded-3xl bg-white/10 p-5 backdrop-blur-md">
@@ -19,10 +21,8 @@ function HeroInsight() {
           AI Insight
         </h3>
 
-        <p className="mt-2 leading-7 text-white/80">
-          You're only <strong>24g</strong> away from today's
-          protein goal. A grilled chicken wrap after your
-          workout would push your Nutrition Score above 95.
+        <p className="mt-2 leading-7 text-white/90">
+          {nutritionData.insight}
         </p>
 
       </div>

@@ -1,4 +1,4 @@
-import { Apple } from "lucide-react";
+import { nutritionData } from "../../data/nutrition";
 
 function HeroHeader() {
   return (
@@ -11,7 +11,7 @@ function HeroHeader() {
         </h1>
 
         <p className="mt-2 text-white/80">
-          AI analyzed today's meals
+          {nutritionData.date}
         </p>
 
       </div>
@@ -23,7 +23,7 @@ function HeroHeader() {
         </p>
 
         <h2 className="text-3xl font-bold text-white">
-          91
+          {nutritionData.score}
         </h2>
 
       </div>

@@ -3,7 +3,7 @@ import MacroOverview from "../components/MacroOverview/MacroOverview";
 import QuickActions from "../components/QuickActions/QuickActions";
 import MealsTimeline from "../components/MealsTimeline/MealsTimeline";
 import NutritionCoach from "../components/NutritionCoach/NutritionCoach";
-import NutritionForecast from "../components/NutritionForecast/NutritionForecast";
+import NutritionConsistency from "../components/NutritionConsistency/NutritionConsistency";
 
 function Nutrition() {
   return (
@@ -18,7 +18,7 @@ function Nutrition() {
 
       <NutritionCoach />
 
-      <NutritionForecast />
+      <NutritionConsistency />
     </div>
   );
 }

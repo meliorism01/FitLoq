@@ -1,10 +1,34 @@
+import DashboardCard from "@components/dashboard/DashboardCard";
+import SectionHeader from "@components/dashboard/SectionHeader";
+
+import TimelineItem from "../TimelineItem/TimelineItem";
+import MealCard from "../MealCard/MealCard";
+
+import { nutritionData } from "../../data/nutrition";
+
 function MealsTimeline() {
   return (
-    <div className="rounded-3xl border border-dashed border-orange-300 p-8 text-center">
-      <h2 className="text-2xl font-bold">
-        Meals Timeline
-      </h2>
-    </div>
+    <DashboardCard>
+
+      <SectionHeader
+        title="Meal Timeline"
+        subtitle="Track your meals throughout the day"
+      />
+
+      <div className="mt-8 space-y-8">
+
+        {nutritionData.meals.map((meal, index) => (
+          <TimelineItem
+            key={meal.id}
+            last={index === nutritionData.meals.length - 1}
+          >
+            <MealCard meal={meal} />
+          </TimelineItem>
+        ))}
+
+      </div>
+
+    </DashboardCard>
   );
 }
 

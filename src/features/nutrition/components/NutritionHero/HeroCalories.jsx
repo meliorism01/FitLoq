@@ -1,38 +1,27 @@
+import { nutritionData } from "../../data/nutrition";
+
 function HeroCalories() {
+  const { consumed, goal } = nutritionData.calories;
+  const remaining = goal - consumed;
+
   return (
-    <div className="mt-10 flex items-end justify-between">
+    <div className="mt-10 text-center">
 
-      <div>
+      <p className="text-sm uppercase tracking-widest text-white/70">
+        Today's Calories
+      </p>
 
-        <p className="text-sm uppercase tracking-wider text-white/70">
-          Consumed
-        </p>
+      <h2 className="mt-3 text-5xl font-black text-white">
+        {consumed}
+        <span className="text-3xl font-semibold text-white/80">
+          {" "}
+          / {goal} kcal
+        </span>
+      </h2>
 
-        <h2 className="mt-2 text-5xl font-black text-white">
-          1820
-        </h2>
-
-        <p className="mt-1 text-white/80">
-          kcal
-        </p>
-
-      </div>
-
-      <div className="text-right">
-
-        <p className="text-sm uppercase tracking-wider text-white/70">
-          Remaining
-        </p>
-
-        <h2 className="mt-2 text-4xl font-bold text-white">
-          580
-        </h2>
-
-        <p className="mt-1 text-white/80">
-          kcal
-        </p>
-
-      </div>
+      <p className="mt-3 text-lg text-white/90">
+        {remaining} kcal remaining
+      </p>
 
     </div>
   );
