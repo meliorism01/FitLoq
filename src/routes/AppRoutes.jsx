@@ -17,6 +17,7 @@ import Dashboard from "@pages/Dashboard/Dashboard";
 
 import ProtectedRoute from "@guards/ProtectedRoute";
 import Nutrition from "../features/nutrition/pages/Nutrition";
+import Workout from "../features/workout/pages/Workout";
 
 function AppRoutes() {
   return (
@@ -69,6 +70,10 @@ function AppRoutes() {
   path="nutrition"
   element={<Nutrition />}
 /> 
+  <Route
+  path="workout"
+  element={<Workout />}
+/>
       </Route>
 
       {/* ===================== */}
@@ -79,6 +84,7 @@ function AppRoutes() {
         path="*"
         element={<Navigate to={ROUTES.HOME} replace />}
       />
+    
     </Routes>
   );
 }
