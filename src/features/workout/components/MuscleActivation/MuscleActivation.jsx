@@ -11,9 +11,9 @@ function MuscleActivation() {
 
       <div className="border-b border-white/10 px-10 py-8">
 
-        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-cyan-400">
-          Muscle Activation
-        </p>
+       <p className="text-xl font-bold uppercase tracking-[0.2em] text-cyan-400">
+  Muscle Activation
+</p>
 
         <h2 className="mt-3 text-4xl font-bold text-white">
           AI Muscle Analysis

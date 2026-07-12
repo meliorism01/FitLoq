@@ -1,6 +1,7 @@
 import WorkoutHero from "../components/WorkoutHero/WorkoutHero";
 import TodaysSession from "../components/TodaysSession";
 import MuscleActivation from "../components/MuscleActivation";
+import PersonalRecords from "../components/PersonalRecords";
 
 function Workout() {
   return (
@@ -10,6 +11,8 @@ function Workout() {
       <TodaysSession />
 
       <MuscleActivation />
+
+      <PersonalRecords />
     </div>
   );
 }

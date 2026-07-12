@@ -19,8 +19,7 @@ function WorkoutHero() {
   from-slate-950
   via-blue-950
   to-slate-900
-px-12 py-4
-  shadow-2xl
+px-10 py-0
 "
 >
 
